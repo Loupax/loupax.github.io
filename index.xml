@@ -6,10 +6,33 @@
     <description>Konstantinos Loupasakis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 06 Aug 2020 12:27:59 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 15 Aug 2020 15:30:24 +0300</lastBuildDate>
     
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to efficiently trigger file downloads in PHP</title>
+      <link>/posts/efficient_downloads_in_php/</link>
+      <pubDate>Sat, 15 Aug 2020 15:30:24 +0300</pubDate>
+      
+      <guid>/posts/efficient_downloads_in_php/</guid>
+      <description>&lt;p&gt;Making a download happen in PHP is dead simple: Just set your Content-Type and send it&amp;rsquo;s contents to the client through the standard output, usually with the use of &lt;code&gt;echo&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Here is what you want to avoid when you try doing that.&lt;/p&gt;
+&lt;p&gt;Here is how I used to do it:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;header(&#39;Content-Type: application/octet-stream&#39;);
+header(&#39;Content-Transfer-Encoding: Binary&#39;);
+header(&#39;Content-disposition: attachment; filename=&amp;quot;&#39; . basename($file_location) . &#39;&amp;quot;&#39;);
+echo file_get_contents($file_location);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This might work fine for small files but there is a caveat: It will load the entire file to memory, which sooner or later will bring your server to it&amp;rsquo;s knees.&lt;br&gt;
+Here is a more memory-efficient way to do it.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;header(&#39;Content-Type: application/octet-stream&#39;);
+header(&#39;Content-Transfer-Encoding: Binary&#39;);
+header(&#39;Content-disposition: attachment; filename=&amp;quot;&#39; . basename($file_location) . &#39;&amp;quot;&#39;);
+readfile($file_location);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The difference between the two snippets is a subtle, but important one: &lt;code&gt;file_get_contents&lt;/code&gt; returns all the contents of the file into a single string. Which, in turn, means that if our file is, say 1GB, we have used 1GB of our server RAM just so that we can echo our file.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;readfile&lt;/code&gt; on the other hand echoes the files, without having to load the entire thing in memory; it internally goes through the file and echoes it’s contents with minimal memory footprint.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>First</title>
@@ -20,7 +43,9 @@
       <description>&lt;p&gt;Once upon a time there was a little blog.&lt;br&gt;
 Full of potential.&lt;br&gt;
 Empty of words.&lt;/p&gt;
-</description>
+&lt;p&gt;This is not a forgotten draft. This is a reminder, a ghost of the days of procratination.&lt;br&gt;
+If you read this it can mean two things. Either I never bother adding enough words in the word-machine, or you are a dedicaded reader, a blog archaiologist digging through the archives for long forgotten knowledge.&lt;/p&gt;
+&lt;p&gt;Hope the easter egg you found was worth it 😊&lt;/p&gt;</description>
     </item>
     
   </channel>
