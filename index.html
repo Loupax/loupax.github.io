@@ -17,10 +17,10 @@
 <meta name="description" content="Opinions, absolute truths and ramblings about life and software">
 
 <link rel="alternate" type="application/rss+xml" href="/index.xml" title="Konstantinos Loupasakis" />
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="apple-touch-icon-precomposed" href="favicon.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="/favicon.png">
 
-<link rel="stylesheet" href="css/light.css?rnd=1597496833" />
+<link rel="stylesheet" href="/css/light.css?rnd=1597497264" />
 <style>
 
     :root {
@@ -52,7 +52,7 @@
 
 </style>
 
-<link rel="stylesheet" href="css/style.css?rnd=1597496833" />
+<link rel="stylesheet" href="/css/style.css?rnd=1597497264" />
 
 
 
@@ -62,7 +62,7 @@
 <meta property="og:description" content="Opinions, absolute truths and ramblings about life and software" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/" />
-<meta property="og:updated_time" content="2020-08-15T15:30:24+03:00" />
+<meta property="og:updated_time" content="2020-08-15T15:54:41+03:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Konstantinos Loupasakis"/>
@@ -101,6 +101,40 @@
     </div>
 
     
+    
+        <article class="post-list">
+    <header class="post-header">
+        <h1 class="post-title"><a href="/posts/php_when_gc_breaks_your_stuff/">When PHP garbage collector breaks your stuff</a></h1>
+    </header>
+
+    <div class="content post-summary">
+        <blockquote>
+<p>TL;DR</p>
+<pre><code>foreach($obj-&gt;getIterator() as $item){}
+</code></pre><p>and</p>
+<pre><code>$iterator = $obj-&gt;getIterator();
+foreach($iterator as $item){}
+</code></pre><p>do not necessarily have the same behaviour.</p>
+</blockquote>
+    </div>
+    
+    
+    
+
+    
+
+
+<div class="post-info">
+    
+        <div class="post-date">2020-08-15</div>
+    
+    <div class="post-taxonomies">
+        
+            
+    </div>
+</div>
+
+</article>
     
         <article class="post-list">
     <header class="post-header">

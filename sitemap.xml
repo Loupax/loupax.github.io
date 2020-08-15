@@ -3,17 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/posts/efficient_downloads_in_php/</loc>
-    <lastmod>2020-08-15T15:30:24+03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/</loc>
-    <lastmod>2020-08-15T15:30:24+03:00</lastmod>
+    <lastmod>2020-08-15T15:54:41+03:00</lastmod>
   </url>
   
   <url>
     <loc>/posts/</loc>
+    <lastmod>2020-08-15T15:54:41+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/php_when_gc_breaks_your_stuff/</loc>
+    <lastmod>2020-08-15T15:54:41+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/efficient_downloads_in_php/</loc>
     <lastmod>2020-08-15T15:30:24+03:00</lastmod>
   </url>
   

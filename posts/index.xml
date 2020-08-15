@@ -6,10 +6,75 @@
     <description>Konstantinos Loupasakis (Posts)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Aug 2020 15:30:24 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 15 Aug 2020 15:54:41 +0300</lastBuildDate>
     
     <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>When PHP garbage collector breaks your stuff</title>
+      <link>/posts/php_when_gc_breaks_your_stuff/</link>
+      <pubDate>Sat, 15 Aug 2020 15:54:41 +0300</pubDate>
+      
+      <guid>/posts/php_when_gc_breaks_your_stuff/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;TL;DR&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;foreach($obj-&amp;gt;getIterator() as $item){}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;and&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$iterator = $obj-&amp;gt;getIterator();
+foreach($iterator as $item){}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;do not necessarily have the same behaviour.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A colleague of mine has been working on a project that uses LDAP. Everything was fine and great until he deployed the application to production he started receiving this error message:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Could not rewind entries array&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;So when he showed the issue to the rest of the team we did what everyone in their right minds would do; start debugging the framework by adding &lt;code&gt;die()&lt;/code&gt; statements here and there. After some hacking, we ended up inside this piece of code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;public function rewind()
+{
+    $this-&amp;gt;current = ldap_first_entry($this-&amp;gt;connection, $this-&amp;gt;search);
+    if (false === $this-&amp;gt;current) {
+        throw new LdapException(sprintf(&#39;Could not rewind entries array: %s&#39;, ldap_error($this-&amp;gt;connection)));
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The funny thing was that while &lt;code&gt;$this-&amp;gt;current&lt;/code&gt; was &lt;code&gt;FALSE&lt;/code&gt; and caused the function to throw an &lt;code&gt;LdapException&lt;/code&gt;, &lt;code&gt;ldap_error($this-&amp;gt;connection)&lt;/code&gt; returned the string ‘Success’. Huh.&lt;/p&gt;
+&lt;p&gt;After spending too much time making changes and seeing what breaks, suddenly the application started working correctly, seemingly without any real changes to the code.&lt;/p&gt;
+&lt;p&gt;Here is the change that apparently fixed everything:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; /**
+  * @return \Symfony\Component\Ldap\Adapter\CollectionInterface
+  */
+  public function getResults($query)
+  {
+      $this-&amp;gt;ldap-&amp;gt;bind($this-&amp;gt;searchDn, $this-&amp;gt;searchPassword);
+          $search = $this-&amp;gt;ldap-&amp;gt;query($this-&amp;gt;baseDn, $query);
+      return $search-&amp;gt;execute();
+  }
+
+ /**
+  * BROKEN
+  */
+  public function getAllUsers()
+  {
+      foreach ($this-&amp;gt;getResults($this-&amp;gt;allUsersQuery) as $ldapUser) {
+           $results[] = $this-&amp;gt;extractUserInfo($ldapUser);
+      }
+      return $results;
+  }
+
+ /**
+  * WORKING
+  */
+  public function getAllUsers()
+  {
+      $queryResults = $this-&amp;gt;getResults($this-&amp;gt;allUsersQuery);
+      foreach ($queryResults as $ldapUser) {
+           $results[] = $this-&amp;gt;extractUserInfo($ldapUser);
+      }
+      return $results;
+  }
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Do you see the difference between these two functions? I certainly don&amp;rsquo;t! What I can see that in the first we iterate the returned CollectionInterface directly inside the for loop, and in the second we assign it to a variable first, but it shouldn’t have an effect, right?&lt;/p&gt;
+&lt;p&gt;Well spoiler alert, it does.&lt;/p&gt;
+&lt;p&gt;I’m not 100% sure, but I’m suspecting a garbage collector releasing the query result before the iterator gets a chance to rewind.&lt;/p&gt;
+&lt;p&gt;Must investigate more.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>How to efficiently trigger file downloads in PHP</title>
