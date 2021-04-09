@@ -1,38 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>/</loc>
-    <lastmod>2020-08-15T15:54:41+03:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-03-27T21:57:26+01:00</lastmod>
+  </url><url>
+    <loc>/posts/the_sex_talk/</loc>
+    <lastmod>2021-03-27T21:57:26+01:00</lastmod>
+  </url><url>
     <loc>/posts/</loc>
-    <lastmod>2020-08-15T15:54:41+03:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-03-27T21:57:26+01:00</lastmod>
+  </url><url>
     <loc>/posts/php_when_gc_breaks_your_stuff/</loc>
     <lastmod>2020-08-15T15:54:41+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/posts/efficient_downloads_in_php/</loc>
     <lastmod>2020-08-15T15:30:24+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/posts/first/</loc>
     <lastmod>2020-08-06T12:27:59+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/</loc>
   </url>
-  
 </urlset>

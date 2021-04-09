@@ -6,10 +6,68 @@
     <description>Konstantinos Loupasakis (Posts)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Aug 2020 15:54:41 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 27 Mar 2021 21:57:26 +0100</lastBuildDate>
     
     <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Let&#39;s talk sex</title>
+      <link>/posts/the_sex_talk/</link>
+      <pubDate>Sat, 27 Mar 2021 21:57:26 +0100</pubDate>
+      
+      <guid>/posts/the_sex_talk/</guid>
+      <description>&lt;p&gt;I think it is time we had the sex talk. Please have a seat. I will try to keep
+it short and to the point, but it is of outmost importance we have this
+talk sooner rather than later. It&amp;rsquo;s an uncomfortable subject, but I swear the
+payoff will be worth it.&lt;/p&gt;
+&lt;p&gt;Ready?&lt;br&gt;
+Ok.&lt;/p&gt;
+&lt;p&gt;Sex is like talking. When people want to make an idea they talk about it until
+they reach a conclusion.&lt;/p&gt;
+&lt;p&gt;Sometimes they talk with themselves which is all fun and good but there&amp;rsquo;s a limit on how
+much you can get out of it.&lt;/p&gt;
+&lt;p&gt;Sometimes it involves one person surrounded by a crowd, which can be great if
+the speaker is talented and engaging enough but it&amp;rsquo;s more of a one way thing.&lt;/p&gt;
+&lt;p&gt;And &lt;em&gt;sometimes&lt;/em&gt; groups gather so they can talk together, usually groups of
+two but it can involve more people. For those cases, the term used to describe the act
+is &amp;ldquo;&lt;em&gt;to perform discourse&lt;/em&gt;&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;Discourse is a magical act. It is how people give birth to, and raise, their
+ideas and while that is the closest thing it has to a purpose, it is not confined by it.&lt;/p&gt;
+&lt;p&gt;Some people use discourse just for the fun of it and they do just fine; the connection
+with another being can be it&amp;rsquo;s own reward after all. Others do it only to spit their
+idea in someone&amp;rsquo;s face which of course can be very rude unless the other one is
+into that.&lt;br&gt;
+Some people care about the journey, some people focus on reaching a conclusion
+as quickly and in as few words as possible.&lt;/p&gt;
+&lt;p&gt;Most people claim to be good at it, but almost all of them are liars. The world would be
+a better place if everyone just came to peace with that and stopped treating discourse
+like a competitive sport and accept the fact that, like in every other skill most
+people are mediocre on it. That it can be good enough as long as all participants
+are having fun.&lt;br&gt;
+There&amp;rsquo;s no need to make up stories about how you totally won that debate
+against that girl from another town that nobody from your common circle happens
+to know about. It&amp;rsquo;s fine.&lt;/p&gt;
+&lt;p&gt;Another myth about discourse is that it awesome and great at all times, but
+thats very far from the truth.
+In reality the more enjoyable a discourse session is, the more likely it is for
+all it&amp;rsquo;s participants to be deeply ashamed about it afterwards.
+You see, good discourse is not about showing off and flexing your oratory
+muscles. Good discourse is about communication and exposing your beliefs naked
+for everyone to see.
+Good discourse is about starting with small prods on your partners mind to see
+what makes them move, and once they open up letting them do the same to you.
+And keeping doing this until your ideas become one, and with each word you fill
+a gap on their head, with each word you accept their inner world into yours and
+you keep exploring the concepts and then&amp;hellip;&lt;/p&gt;
+&lt;p&gt;You reach a conclusion. Panting and satisfied. Maybe a bit dehydrated. Just
+realizing that the words that came out of your mouth sounded dumb and silly,
+maybe even disgusting and gross.
+But it doesn&amp;rsquo;t matter, because you allowed yourself to become vulnerable for
+someone else.&lt;/p&gt;
+&lt;p&gt;And for this moment everything is good.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>When PHP garbage collector breaks your stuff</title>
